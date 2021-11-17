@@ -15,7 +15,7 @@ var currentWeather = function(data, cityName) {
   var wind = data.wind_speed;
   var hum = data.humidity;
   var uv = data.uvi;
-  var iconSrc = "http://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png"
+  var iconSrc = "https://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png"
   var date = new Date(data.dt*1000);
   date = date.toLocaleString().substring(0,10);
 
@@ -67,7 +67,7 @@ var futureWeather = function(data) {
     var tempMin = Math.round(data[i].temp.min);
     var wind = data[i].wind_speed;
     var hum = data[i].humidity;
-    var iconSrc = "http://openweathermap.org/img/wn/"+data[i].weather[0].icon+"@2x.png"
+    var iconSrc = "https://openweathermap.org/img/wn/"+data[i].weather[0].icon+"@2x.png"
     var date = new Date(data[i].dt*1000);
     date = date.toLocaleString().substring(0,10);
 
@@ -118,7 +118,7 @@ var getCities = function() {
   }
 
   if(!newCity){
-    var cityUrl = "http://api.openweathermap.org/geo/1.0/direct?q="+cities[0]+"&limit=5&appid=aea3763261460cc25632d3f72b2d8a29"
+    var cityUrl = "https://api.openweathermap.org/geo/1.0/direct?q="+cities[0]+"&limit=5&appid=aea3763261460cc25632d3f72b2d8a29"
     fetch(cityUrl)
       .then(function(response) {
         return response.json();
@@ -163,7 +163,7 @@ var cityHandler = function(event){
     }
   }
 
-  var cityUrl = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=5&appid=aea3763261460cc25632d3f72b2d8a29"
+  var cityUrl = "https://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=5&appid=aea3763261460cc25632d3f72b2d8a29"
   fetch(cityUrl)
     .then(function(response) {
       if(!response.ok){
@@ -200,7 +200,7 @@ var savedCities = function(event) {
   var cityName = event.target.innerText;
   cityEl.value = event.target.innerText;
 
-  var cityUrl = "http://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=5&appid=aea3763261460cc25632d3f72b2d8a29"
+  var cityUrl = "https://api.openweathermap.org/geo/1.0/direct?q="+cityName+"&limit=5&appid=aea3763261460cc25632d3f72b2d8a29"
   fetch(cityUrl)
     .then(function(response) {
       return response.json();
